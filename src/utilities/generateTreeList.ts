@@ -11,7 +11,7 @@ export function generateTreeList(docs?: PaginatedDocs["docs"]) {
   const rootDocs = [];
 
   docs.forEach(doc => {
-    if (doc.parent === null) {
+    if (typeof doc.parent === 'undefined' || doc.parent === null) {
       rootDocs.push(docsById[doc.id]);
     } else {
       docsById[doc.parent].children.push(docsById[doc.id]);
